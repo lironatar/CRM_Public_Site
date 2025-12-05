@@ -1,0 +1,254 @@
+/* Start Process Page - Premium Mobile First Design */
+.container {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.backgroundEffects {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.blob1 {
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float 8s ease-in-out infinite;
+}
+
+.blob2 {
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(132, 204, 22, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(50px);
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+.content {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.header {
+    text-align: center;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--text-main);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.stepsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 1rem 0 2rem;
+}
+
+.stepCard {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 1.25rem;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.stepCard:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stepCard:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stepCard:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.stepCard:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: var(--primary-light);
+}
+
+.iconWrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-50) 0%, #ffffff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-xs);
+    border: 1px solid var(--primary-100);
+}
+
+.stepContent {
+    flex: 1;
+}
+
+.stepTitle {
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+    font-size: 1.125rem;
+}
+
+.stepDescription {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.ctaContainer {
+    position: sticky;
+    bottom: 2rem;
+    padding-top: 1rem;
+    animation: fadeInUp 0.6s ease-out 0.4s backwards;
+    background: linear-gradient(to top, #f0f9ff 20%, transparent 100%);
+    /* Fade out background for sticky feel */
+    margin: 0 -1.5rem;
+    /* Extend to edges for sticky background */
+    padding: 1.5rem;
+}
+
+.primaryButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #ffffff;
+    padding: 1.125rem;
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    font-size: 1.125rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    transition: all 0.3s ease;
+}
+
+.primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+}
+
+.buttonIcon {
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.primaryButton:hover .buttonIcon {
+    transform: translateX(-4px);
+    /* Move left for RTL */
+}
+
+.secureNote {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Desktop Enhancements */
+@media (min-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+    }
+
+    .stepsContainer {
+        gap: 1.5rem;
+    }
+
+    .stepCard {
+        padding: 1.5rem;
+    }
+
+    .ctaContainer {
+        position: static;
+        background: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .primaryButton {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}

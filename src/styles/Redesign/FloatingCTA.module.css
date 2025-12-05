@@ -1,0 +1,112 @@
+/* Premium Floating CTA */
+.floatingContainer {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 0;
+    right: 0;
+    padding: 0 1rem;
+    z-index: 40;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 24rem;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    color: var(--dark-bg);
+    text-align: center;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    font-size: 1rem;
+    box-shadow: var(--shadow-2xl), var(--glow-accent);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    pointer-events: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer effect */
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 30px 60px -15px rgba(132, 204, 22, 0.5), var(--glow-accent);
+}
+
+.button:active {
+    transform: translateY(-1px) scale(1.01);
+}
+
+/* Desktop - smaller and positioned better */
+@media (min-width: 768px) {
+    .floatingContainer {
+        bottom: 2rem;
+        padding: 0 2rem;
+    }
+
+    .button {
+        max-width: 20rem;
+        padding: 1rem 2.5rem;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 380px) {
+    .button {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9375rem;
+    }
+}
+
+/* Fix overlap with WhatsApp button on mobile */
+@media (max-width: 767px) {
+    .floatingContainer {
+        /* Add right padding so the button doesn't go under the WhatsApp icon */
+        padding-right: 5rem; 
+        padding-left: 1.5rem;
+        /* Align somewhat left to balance */
+    }
+    
+    .button {
+        margin: 0; /* Align left (with max-width it will sit left) */
+        width: auto; /* Let it shrink if needed */
+        min-width: 200px;
+    }
+}
