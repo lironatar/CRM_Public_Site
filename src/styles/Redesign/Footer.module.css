@@ -1,6 +1,7 @@
 /* Premium Footer */
 .footer {
-    background: linear-gradient(180deg, var(--dark-bg) 0%, #0c1929 100%);
+    /* Deep Blue Gradient */
+    background: linear-gradient(180deg, var(--brand-blue-deep) 0%, #0a1625 100%);
     color: var(--text-inverse);
     padding: 5rem 0 2rem;
     position: relative;
@@ -15,7 +16,8 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.5;
 }
 
 .container {
@@ -49,11 +51,10 @@
 }
 
 .brandLogo span:last-child {
-    color: var(--accent);
+    color: var(--primary-light);
 }
 
 .brandDescription {
-    color: rgba(255, 255, 255, 0.6);
     font-size: 0.9375rem;
     line-height: 1.7;
     max-width: 280px;
@@ -69,7 +70,7 @@
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 1.25rem;
-    color: var(--accent);
+    color: var(--primary-light);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -114,7 +115,7 @@
 }
 
 .contactIcon {
-    color: var(--accent);
+    color: var(--primary-light);
 }
 
 /* Bottom Section */
@@ -152,9 +153,17 @@
 }
 
 /* Utility Classes */
-.textSlate400 { color: rgba(255, 255, 255, 0.6); }
-.textSm { font-size: 0.875rem; }
-.leadingRelaxed { line-height: 1.7; }
+.textSlate400 {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.textSm {
+    font-size: 0.875rem;
+}
+
+.leadingRelaxed {
+    line-height: 1.7;
+}
 
 /* Tablet */
 @media (min-width: 640px) {

@@ -32,14 +32,15 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
-    color: #b45309;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--brand-blue-deep);
     padding: 0.5rem 1rem;
     border-radius: var(--radius-full);
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    border: 1px solid rgba(180, 83, 9, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    opacity: 0.8;
 }
 
 .title {

@@ -114,6 +114,17 @@ export default function Wizard() {
                         חזור
                     </button>
 
+                    {level === 2 && (
+                        <button
+                            className={styles.btnNext}
+                            onClick={() => setLevel(prev => prev + 1)}
+                            disabled={formData.services.length === 0}
+                            style={{ opacity: formData.services.length === 0 ? 0.5 : 1 }}
+                        >
+                            המשך לשלב הבא
+                        </button>
+                    )}
+
                     {level === 4 && (
                         <button
                             className={styles.btnNext}

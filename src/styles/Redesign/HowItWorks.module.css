@@ -1,247 +1,318 @@
-/* Premium HowItWorks Section */
+/* Storytelling HowItWorks Section */
 .section {
     padding: 6rem 0;
-    background: var(--background);
     position: relative;
+    overflow: hidden;
+    /* Subtle mesh gradient background */
+    background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.05), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(132, 204, 22, 0.05), transparent 40%);
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 1.5rem;
+    position: relative;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .sectionBadge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--primary-50);
-    color: var(--primary);
-    padding: 0.5rem 1rem;
+    background: #fff;
+    color: var(--brand-blue);
+    /* Switched from deep to brand-blue */
+    padding: 0.5rem 1.25rem;
     border-radius: var(--radius-full);
     font-size: 0.875rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(37, 99, 235, 0.1);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
 }
 
 .title {
-    font-size: 2.25rem;
+    font-size: 2.75rem;
     font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 0.75rem;
+    color: var(--brand-blue);
+    /* Switched from deep to brand-blue */
+    margin-bottom: 1rem;
     letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
 .subtitle {
     color: var(--text-secondary);
-    font-size: 1.125rem;
-    max-width: 500px;
+    font-size: 1.25rem;
+    max-width: 480px;
     margin: 0 auto;
+    line-height: 1.6;
 }
 
-/* Steps Container */
-.stepsContainer {
+/* The Story Timeline */
+.timeline {
+    position: relative;
+    padding-right: 2rem;
+    /* RTL: Space on the right */
+}
+
+/* The Glowing Path (Grey Background) */
+.timeline::before {
+    content: '';
+    position: absolute;
+    right: 8px;
+    /* RTL: Line on the right */
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: rgba(226, 232, 240, 0.6);
+    /* Faint grey track */
+    border-radius: 4px;
+    z-index: 0;
+}
+
+/* The Animated Progress Line */
+.progressLine {
+    position: absolute;
+    right: 8px;
+    top: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--brand-blue) 0%, var(--primary) 100%);
+    border-radius: 4px;
+    z-index: 0;
+    transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+}
+
+.storyStep {
+    position: relative;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.storyStep.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.storyStep:last-child {
+    margin-bottom: 0;
+}
+
+/* The Pulse Node */
+.timelineNode {
+    position: absolute;
+    right: calc(-2rem + 8px - 10px);
+    top: 2rem;
+    width: 20px;
+    height: 20px;
+    background: var(--surface);
+    border: 3px solid #cbd5e1;
+    border-radius: 50%;
+    z-index: 1;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 0 4px #fff;
+    /* White gap */
+}
+
+.activeNode {
+    border-color: var(--primary);
+    background: var(--brand-blue);
+    transform: scale(1.3);
+    box-shadow: 0 0 0 4px #fff, 0 0 20px rgba(132, 204, 22, 0.4);
+}
+
+/* Unique Ripple Effect for Active Node */
+.ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    opacity: 0;
+    animation: rippleEffect 2.5s ease-out forwards;
+    /* Increased duration, ensuring visibility */
+}
+
+@keyframes rippleEffect {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+        /* Start visible */
+        border-width: 3px;
+    }
+
+    100% {
+        width: 300%;
+        height: 300%;
+        opacity: 0;
+        /* Fade out at end */
+        border-width: 0px;
+    }
+}
+
+/* The Card */
+.storyCard {
+    background: #fff;
+    border-radius: var(--radius-2xl);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg), 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+    /* Soft, deep shadow */
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-bottom: 3rem;
-    position: relative;
 }
 
-/* Connection Line */
-.stepsContainer::before {
-    content: '';
-    position: absolute;
-    right: 2.25rem;
-    top: 3rem;
-    bottom: 3rem;
-    width: 2px;
-    background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
-    opacity: 0.3;
-    display: none;
+.storyStep:hover .storyCard {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-xl), 0 20px 50px -10px rgba(37, 99, 235, 0.15);
+    border-color: rgba(37, 99, 235, 0.2);
 }
 
-/* Step Card */
-.step {
-    background: var(--surface);
+/* Mobile Icon (Top Left) */
+.iconWrapper {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: linear-gradient(135deg, var(--surface) 0%, #f1f5f9 100%);
     border-radius: var(--radius-xl);
-    padding: 2rem;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border);
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    text-align: right;
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-}
-
-.step:hover {
-    box-shadow: var(--shadow-xl);
-    transform: translateY(-4px);
-    border-color: var(--primary-light);
-}
-
-/* Step Number Badge */
-.stepNumber {
-    flex-shrink: 0;
-    width: 3rem;
-    height: 3rem;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: var(--text-inverse);
-    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
-    font-size: 1.25rem;
-    box-shadow: var(--shadow-md), var(--glow-primary-sm);
+    color: var(--brand-blue);
+    /* Switched to brand-blue */
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.4s ease;
 }
 
-.step:nth-child(2) .stepNumber {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    box-shadow: var(--shadow-md), 0 0 20px rgba(124, 58, 237, 0.25);
+.storyStep:hover .iconWrapper {
+    transform: rotate(10deg) scale(1.1);
 }
 
-.step:nth-child(3) .stepNumber {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
-    box-shadow: var(--shadow-md), var(--glow-accent-sm);
+.storyStep:nth-child(2) .iconWrapper {
+    color: var(--brand-blue);
 }
 
-.stepContent {
-    flex: 1;
-}
-
-.stepIcon {
-    display: none;
-}
-
-.stepTitle {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-main);
-    margin-bottom: 0.5rem;
-}
-
-.stepDescription {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-/* Arrow indicator */
-.arrow {
-    display: none;
-}
-
-/* CTA Box */
-.cta {
-    margin-top: 3rem;
-    background: linear-gradient(135deg, var(--primary-50) 0%, var(--surface) 100%);
-    border: 2px solid var(--primary-light);
-    border-radius: var(--radius-xl);
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.cta:hover {
-    border-color: var(--primary);
-    box-shadow: var(--shadow-lg);
-}
-
-.ctaText {
-    font-size: 1.125rem;
-    color: var(--text-main);
-    margin: 0;
-    font-weight: 500;
-}
-
-.ctaText strong {
+.storyStep:nth-child(3) .iconWrapper {
     color: var(--primary);
 }
 
-/* Tablet */
-@media (min-width: 640px) {
-    .stepsContainer {
-        gap: 2rem;
+/* SVG Draw Animation */
+.iconSvg {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 1s ease 0.2s;
+}
+
+.storyStep.visible .iconSvg {
+    stroke-dashoffset: 0;
+    /* Animate drawing */
+}
+
+.content h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--brand-blue);
+    /* Switched to brand-blue */
+    margin-bottom: 0.5rem;
+}
+
+.content p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Step Indicator (Background Number) */
+.stepBg {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03);
+    line-height: 1;
+    pointer-events: none;
+    font-family: var(--font-heebo), sans-serif;
+    transition: transform 0.4s ease;
+}
+
+.storyStep:hover .stepBg {
+    transform: scale(1.1) translateX(-10px);
+    color: rgba(37, 99, 235, 0.05);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .timeline {
+        padding-right: 4rem;
+        /* RTL padding */
+        max-width: 600px;
+        margin: 0 auto;
+        padding-left: 0;
     }
 
-    .stepsContainer::before {
-        display: block;
+    .timeline::before,
+    .progressLine {
+        right: 32px;
     }
 
-    .step {
-        padding: 2.5rem;
-        margin-right: 2rem;
+    .timelineNode {
+        right: calc(32px - 10px);
     }
 
-    .stepNumber {
-        position: absolute;
-        right: -1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 3rem;
-        height: 3rem;
+    .storyCard {
+        flex-direction: row;
+        align-items: center;
+        text-align: right;
+    }
+
+    .iconWrapper {
+        width: 4.5rem;
+        height: 4.5rem;
+        flex-shrink: 0;
     }
 }
 
-/* Desktop */
-@media (min-width: 1024px) {
-    .section {
-        padding: 8rem 0;
-    }
-
-    .title {
-        font-size: 2.75rem;
-    }
-
-    .step {
-        padding: 3rem 3rem 3rem 5rem;
-    }
-
-    .cta {
-        padding: 2.5rem;
-    }
-
-    .ctaText {
-        font-size: 1.25rem;
-    }
-}
-
-/* Mobile */
 @media (max-width: 480px) {
-    .section {
-        padding: 4rem 0;
-    }
-
     .header {
-        margin-bottom: 2.5rem;
+        margin-bottom: 3rem;
     }
 
     .title {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 
-    .step {
+    .storyCard {
         padding: 1.5rem;
-        flex-direction: column;
         gap: 1rem;
     }
 
-    .stepNumber {
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1rem;
+    .iconWrapper {
+        width: 3rem;
+        height: 3rem;
     }
 
-    .cta {
-        padding: 1.5rem;
+    .stepBg {
+        font-size: 4rem;
+        top: 0.5rem;
+        left: 1rem;
     }
 }

@@ -16,7 +16,7 @@
     width: 100%;
     max-width: 1400px;
     height: 100%;
-    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 70%);
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(132, 204, 22, 0.04) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -36,20 +36,24 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--primary-50);
-    color: var(--primary);
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--brand-blue-deep);
     padding: 0.5rem 1rem;
     border-radius: var(--radius-full);
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    border: 1px solid rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 .title {
     font-size: 2.25rem;
     font-weight: 800;
-    color: var(--text-main);
+    color: var(--brand-blue-deep);
+    background: linear-gradient(135deg, var(--brand-blue-deep) 0%, var(--brand-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
 }
@@ -87,7 +91,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
+    background: linear-gradient(90deg, var(--primary), var(--brand-blue));
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -117,7 +121,7 @@
 /* Highlighted Card */
 .highlightCard {
     background: linear-gradient(135deg, rgba(132, 204, 22, 0.05) 0%, var(--surface) 100%);
-    border: 2px solid var(--accent);
+    border: 2px solid var(--primary);
     position: relative;
 }
 
@@ -126,8 +130,8 @@
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background: var(--accent);
-    color: var(--dark-bg);
+    background: var(--primary);
+    color: var(--text-inverse);
     padding: 0.25rem 0.75rem;
     border-radius: var(--radius-full);
     font-size: 0.75rem;
@@ -158,20 +162,20 @@
 }
 
 .blueIcon {
-    background: linear-gradient(135deg, var(--primary-100) 0%, var(--primary-50) 100%);
-    color: var(--primary);
+    background: linear-gradient(135deg, var(--brand-blue-deep) 0%, var(--brand-blue) 100%);
+    color: #ffffff;
     box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
 }
 
 .purpleIcon {
-    background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%);
-    color: #7c3aed;
-    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.15);
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: var(--brand-blue-deep);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
 }
 
 .greenIcon {
     background: linear-gradient(135deg, var(--accent-50) 0%, #ecfdf5 100%);
-    color: var(--accent-hover);
+    color: var(--primary-dark);
     box-shadow: 0 8px 24px rgba(132, 204, 22, 0.15);
 }
 

@@ -1,16 +1,23 @@
 :root {
-  /* Energy & Speed Theme - Premium "Boom. Done. Fast." ⚡ */
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --primary-light: #3b82f6;
-  --primary-50: #eff6ff;
-  --primary-100: #dbeafe;
-  --primary-900: #1e3a8a;
+  /* Energy & Speed Theme - Premium "Deep Blue & Lime" ⚡ */
+  /* Primary is now the Action Color (Lime Green) */
+  --primary: #84cc16;
+  --primary-dark: #65a30d;
+  --primary-light: #a3e635;
+  --primary-50: #f7fee7;
+  --primary-100: #ecfccb;
+  --primary-900: #365314;
 
-  --accent: #84cc16;
-  --accent-hover: #65a30d;
-  --accent-light: #bef264;
-  --accent-50: #f7fee7;
+  /* Brand Colors (The Deep Blue Background) */
+  --brand-blue: #3b82f6;
+  --brand-blue-dark: #2563eb;
+  --brand-blue-deep: #1d4ed8;
+
+  --accent: #f59e0b;
+  /* Orange/Amber for secondary highlights */
+  --accent-hover: #d97706;
+  --accent-light: #fbbf24;
+  --accent-50: #fffbeb;
 
   /* Premium Dark Backgrounds */
   --dark-bg: #0f172a;
@@ -18,12 +25,12 @@
   --dark-card: rgba(30, 41, 59, 0.8);
 
   /* Light Backgrounds */
-  --background: #f8fafc;
-  --surface: #ffffff;
+  --background: #ffffff;
+  --surface: #f8fafc;
 
   /* Text Colors */
   --text-main: #0f172a;
-  --text-secondary: #64748b;
+  --text-secondary: #475569;
   --text-muted: #94a3b8;
   --text-inverse: #ffffff;
 
@@ -44,10 +51,14 @@
 
   /* Shadows - Premium */
   --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
   /* Glow Effects */
@@ -62,7 +73,10 @@
   --glass-dark: rgba(15, 23, 42, 0.8);
 
   /* Typography */
-  --font-sans: var(--font-heebo), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-heebo),
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 * {
@@ -184,6 +198,7 @@ a {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -191,8 +206,13 @@ a {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleIn {
@@ -200,6 +220,7 @@ a {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -207,28 +228,51 @@ a {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { 
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
   }
-  50% { 
+
+  50% {
     box-shadow: 0 0 40px rgba(37, 99, 235, 0.6);
   }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .animate-fade-in {
@@ -310,10 +354,11 @@ a {
     padding: 0.875rem 1.5rem;
     font-size: 0.9375rem;
   }
-  }
+}
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
