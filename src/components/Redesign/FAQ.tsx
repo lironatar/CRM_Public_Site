@@ -52,7 +52,8 @@ export default function FAQ() {
                                 aria-expanded={openIndex === index}
                             >
                                 <span>{faq.question}</span>
-                                <span className={styles.icon}>▼</span>
+                                {/* Plus Icon that rotates */}
+                                <span className={styles.icon}>+</span>
                             </button>
                             {openIndex === index && (
                                 <div className={styles.answer}>

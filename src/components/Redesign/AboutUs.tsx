@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "@/styles/Redesign/AboutUs.module.css";
 
 export default function AboutUs() {
@@ -6,41 +8,65 @@ export default function AboutUs() {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <span className={styles.sectionBadge}>
-                        אנחנו נרשמים בשבילך
                     </span>
-                    <h2 className={styles.title}>מי אנחנו?</h2>
+                    <h2 className={styles.title}>מי אנחנו</h2>
                     <p className={styles.description}>
-                        אנחנו החברה המובילה בישראל לטיפול בבירוקרטיה של מעברי דירה.
-                        המטרה שלנו פשוטה: להפוך את המעבר שלכם לקל, מהיר וללא כאבי ראש.
-                        אנחנו דואגים להעברת כל המשלמים (חשמל, מים, ארנונה וגז) בצורה מאובטחת ויעילה.
+                        בנינו את השירות הראשון בישראל שדואג לכם משלב המעבר ועד לניהול השוטף.
+                        שני עולמות, קורת גג אחת.
                     </p>
                 </div>
 
-                {/* New Technology Highlight */}
-                <div className={styles.techCard}>
-                    <div className={styles.techContent}>
-                        <span className={styles.techBadge}>חדש!</span>
-                        <h3 className={styles.techTitle}>טכנולוגיה המרכזת את הכל במקום אחד</h3>
-                        <p className={styles.techDesc}>
-                            פיתחנו מערכת חכמה המאפשרת לכם לראות ולנהל את כל חשבונות הבית החדש שלכם
-                            בממשק אחד נוח, שקוף ודיגיטלי.
-                        </p>
+                <div className={styles.ecosystemGrid}>
 
-                        <div className={styles.iconGrid}>
-                            {/* Dashboard Icon */}
-                            <svg className={styles.techIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <rect x="3" y="3" width="7" height="9"></rect>
-                                <rect x="14" y="3" width="7" height="5"></rect>
-                                <rect x="14" y="12" width="7" height="9"></rect>
-                                <rect x="3" y="16" width="7" height="5"></rect>
-                            </svg>
-                            {/* Link/Sync Icon */}
-                            <svg className={styles.techIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                            </svg>
+                    {/* Card 1: The Core (Transfer) */}
+                    <div className={`${styles.gridCard} ${styles.transferCard}`}>
+                        <div className={styles.cardHeader}>
+                            <span className={`${styles.cardBadge} ${styles.badgeTransfer}`}>
+                                מעבר דירה
+                            </span>
+                            <h3 className={styles.cardTitle}>הצוות שלנו מעביר את הכל</h3>
+                            <p className={styles.cardDesc}>
+                                הצוות המקצועי שלנו דואג אישית להעברת החשבונות מול חברות החשמל, המים והארנונה.
+                                אנחנו מטפלים בשבילכם, כדי שאתם לא תצטרכו.
+                            </p>
+                        </div>
+                        <div className={styles.cardVisual}>
+                            <div className={`${styles.iconCircle} ${styles.transferIcon}`}>
+                                <div className={styles.pulseRing}></div>
+                                <div className={styles.pulseRing}></div>
+                                {/* Icon: Users/Team */}
+                                <svg className={styles.svgIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
+
+                    {/* Card 2: The New Service (Management) */}
+                    <div className={`${styles.gridCard} ${styles.managementCard}`}>
+                        <div className={styles.newRibbon}>חדש!</div>
+                        <div className={styles.cardHeader}>
+                            <span className={`${styles.cardBadge} ${styles.badgeManage}`}>
+                                ניהול שוטף
+                            </span>
+                            <h3 className={styles.cardTitle}>חשבונות מרוכזים<br />במקום אחד</h3>
+                            <p className={styles.cardDesc}>
+                                סיימתם לעבור? הצוות שלנו ממשיך לעבוד בשבילכם.
+                                אנחנו אוספים, בודקים ומרכזים את כל החשבוניות שלכם באופן ידני, כדי שיהיה לכם שקט נפשי מלא.
+                            </p>
+                        </div>
+                        <div className={styles.cardVisual}>
+                            <div className={`${styles.iconCircle} ${styles.manageIcon}`}>
+                                <div className={styles.pulseRing}></div>
+                                <div className={styles.pulseRing}></div>
+                                {/* Icon: Pie Chart/Dashboard */}
+                                <svg className={styles.svgIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>

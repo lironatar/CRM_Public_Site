@@ -1,7 +1,8 @@
-/* Premium FAQ Section */
+/* Minimalist FAQ - "Clean Velocity" Theme */
 .section {
-    padding: 6rem 0;
-    background: var(--surface);
+    padding: 8rem 0;
+    /* Pure White Background */
+    background: #ffffff;
     position: relative;
 }
 
@@ -13,35 +14,36 @@
 
 .header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .sectionBadge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--primary-50);
-    color: var(--primary);
+    background: #f1f5f9;
+    color: var(--text-secondary);
     padding: 0.5rem 1rem;
-    border-radius: var(--radius-full);
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    border: 1px solid var(--primary-100);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .title {
-    text-align: center;
-    font-size: 2.25rem;
-    font-weight: 800;
-    color: var(--text-main);
+    font-size: 3rem;
+    font-weight: 900;
     margin-bottom: 1rem;
+    color: #0f172a;
+    line-height: 1.1;
     letter-spacing: -0.02em;
 }
 
 .subtitle {
-    color: var(--text-secondary);
     font-size: 1.125rem;
+    color: var(--text-secondary);
     max-width: 450px;
     margin: 0 auto;
 }
@@ -50,90 +52,90 @@
 .spaceY4 {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 }
 
-/* FAQ Item Card */
+/* FAQ Item - Clean Line Style */
 .item {
-    background: var(--background);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-xs);
-    border: 1px solid var(--border);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
 }
 
-.item:hover {
-    box-shadow: var(--shadow-md);
-}
-
-.open {
-    border-color: var(--primary);
-    background: var(--surface);
-    box-shadow: var(--shadow-lg), var(--glow-primary-sm);
+.item:first-child {
+    border-top: 1px solid #e2e8f0;
 }
 
 /* Question Button */
 .question {
     width: 100%;
     text-align: right;
-    padding: 1.5rem;
+    padding: 2rem 0;
+    /* Vertical padding only */
     background: none;
     border: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    font-size: 1.0625rem;
+    gap: 1.5rem;
+    font-size: 1.125rem;
     font-weight: 700;
-    color: var(--text-main);
+    color: #0f172a;
+    /* Default Black */
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: color 0.3s ease;
     font-family: inherit;
 }
 
 .question:hover {
-    color: var(--primary);
+    color: var(--brand-blue);
+    /* Hover Blue */
 }
 
 .open .question {
-    color: var(--primary);
+    color: var(--brand-blue);
+    /* Active Blue */
 }
 
-/* Arrow Icon */
+/* Icon - Plus/Minus Style */
 .icon {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 2rem;
     height: 2rem;
-    border-radius: var(--radius-full);
-    background: var(--primary-50);
-    color: var(--primary);
-    transition: all 0.3s ease;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #64748b;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     flex-shrink: 0;
-    font-size: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    position: relative;
 }
 
 .open .icon {
-    transform: rotate(180deg);
-    background: var(--primary);
-    color: var(--text-inverse);
+    background: var(--primary-100);
+    /* Lime Light */
+    color: var(--primary-dark);
+    /* Lime Dark */
+    transform: rotate(45deg);
+    /* Plus to X rotation if using + */
+    /* Alternatively, if using chevron, rotate 180 */
 }
 
 /* Answer Content */
 .answer {
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding-bottom: 2rem;
     color: var(--text-secondary);
     line-height: 1.8;
-    font-size: 1rem;
-    animation: fadeIn 0.2s ease-out;
+    font-size: 1.0625rem;
+    max-width: 90%;
+    animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes fadeIn {
+@keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(-8px);
+        transform: translateY(-10px);
     }
 
     to {
@@ -142,44 +144,29 @@
     }
 }
 
-/* Contact CTA */
+/* Contact CTA - Minimalist */
 .contactCta {
-    margin-top: 3rem;
+    margin-top: 5rem;
     text-align: center;
-    padding: 2rem;
-    background: linear-gradient(135deg, var(--primary-50) 0%, var(--background) 100%);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--border);
 }
 
 .contactCta p {
     color: var(--text-secondary);
-    margin-bottom: 1rem;
     font-size: 1rem;
 }
 
 .contactCta strong {
-    color: var(--primary);
+    color: var(--brand-blue);
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: rgba(37, 99, 235, 0.3);
+    text-underline-offset: 4px;
+    transition: all 0.2s ease;
 }
 
-/* Desktop */
-@media (min-width: 1024px) {
-    .section {
-        padding: 8rem 0;
-    }
-
-    .title {
-        font-size: 2.75rem;
-    }
-
-    .question {
-        padding: 1.75rem 2rem;
-        font-size: 1.125rem;
-    }
-
-    .answer {
-        padding: 0 2rem 1.75rem;
-    }
+.contactCta strong:hover {
+    color: var(--brand-blue-dark);
+    text-decoration-color: var(--brand-blue);
 }
 
 /* Mobile */
@@ -189,21 +176,16 @@
     }
 
     .title {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 
     .question {
-        padding: 1.25rem;
+        padding: 1.5rem 0;
         font-size: 1rem;
     }
 
     .answer {
-        padding: 0 1.25rem 1.25rem;
-        font-size: 0.9375rem;
-    }
-
-    .icon {
-        width: 1.75rem;
-        height: 1.75rem;
+        padding-bottom: 1.5rem;
+        font-size: 1rem;
     }
 }
